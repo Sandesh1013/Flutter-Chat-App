@@ -1,3 +1,19 @@
-# Flutter-Chat-App
-A Flutter based Chat App with various features and firebase used as the database.
-Planned Features-Push Notifications,Image Uploading,Voice Notes
+# Flutter Chat App
+
+Practise Project to explore advanced functionalities of Flutter
+
+Features:
+
+Chat functionality(Obvious)
+
+Push Notifications
+
+Image Uploading
+
+Voice Notes
+
+User Authentication
+
+Database-Firebase
+
+Let's See How It Goes!
