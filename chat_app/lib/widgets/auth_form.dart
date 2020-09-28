@@ -14,15 +14,40 @@ class _AuthFormState extends State<AuthForm> {
         child: SingleChildScrollView(
           child: Padding(
               padding: EdgeInsets.all(16),
-              child:Form(
+              child: Form(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.min,
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-
+                    TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        labelText: 'Email Address',
+                      ),
+                    ),
+                    TextFormField(
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        labelText: 'Username',
+                      ),
+                    ),
+                    TextFormField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                      ),
+                    ),
+                    SizedBox(height: 12),
+                    RaisedButton(
+                      onPressed: () {},
+                      child:Text('Submit'),
+                    ),
+                    SizedBox(height: 10,),
+                    FlatButton(
+                        textColor: Theme.of(context).primaryColor,
+                        onPressed: (){}, child: Text('Create new Account'))
                   ],
                 ),
-              )
-          ),
+              )),
         ),
       ),
     );
