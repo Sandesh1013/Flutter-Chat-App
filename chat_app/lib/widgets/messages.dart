@@ -1,11 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import './md.dart';
 
 class Messages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: Firestore.instance.collection('chat').orderBy('ts',descending: true).snapshots(),
+    return FutureBuilder(
+      future: FirebaseAuth.instance.currentUser(),
+      builder:(ctx,futureSnapshot) {
+        if(futureSnapshot.connectionState==ConnectionState.waiting){
+          return Center(
+              child:CircularProgressIndicator()
+          );
+        }
+        return StreamBuilder(
+      stream: Firestore.instance.collection('chat').orderBy(
+          'ts', descending: true).snapshots(),
       builder: (ctx, chatSnapshot) {
         if (chatSnapshot.connectionState == ConnectionState.waiting) {
           return Center(
@@ -14,12 +26,12 @@ class Messages extends StatelessWidget {
         }
         final chatDocs = chatSnapshot.data.documents;
         return ListView.builder(
-          reverse: true,
-          itemCount: chatDocs.length,
-          itemBuilder: (ctx, index) => Text(
-            chatDocs[index]['text'],
-          ),
-        );
+        reverse: true,
+        itemCount: chatDocs.length,
+        itemBuilder: (ctx, index) =>
+        MD(chatDocs[index]['text'],chatDocs[index]['sender']==futureSnapshot.data.uid.hashCode,
+        key: ValueKey(chatDocs[index].documentID),),
+        );});
       },
     );
   }
