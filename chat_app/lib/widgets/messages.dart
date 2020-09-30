@@ -29,7 +29,8 @@ class Messages extends StatelessWidget {
         reverse: true,
         itemCount: chatDocs.length,
         itemBuilder: (ctx, index) =>
-        MD(chatDocs[index]['text'],chatDocs[index]['sender']==futureSnapshot.data.uid.hashCode,
+        MD(chatDocs[index]['text'],
+          chatDocs[index]['username'],chatDocs[index]['sender']==futureSnapshot.data.uid,
         key: ValueKey(chatDocs[index].documentID),),
         );});
       },
