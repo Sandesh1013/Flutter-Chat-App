@@ -1,19 +1,17 @@
 # Flutter Chat App
 
-Practise Project to explore advanced functionalities of Flutter
+This is a practise project to explore advanced features and core functionalities of Flutter and Firebase
 
 Features:
 
-Chat functionality(Obvious)
+- [ ] Chat functionality(Obvious)
 
-Push Notifications
+- [ ] Push Notifications
 
-Image Uploading
+- [ ] Image Uploading
 
-Voice Notes
+- [ ] Voice Notes
 
-User Authentication
+- [ ] User Authentication
 
-Database-Firebase
-
-Let's See How It Goes!
+- [ ] Database-Firebase
