@@ -9,30 +9,33 @@ class Messages extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: FirebaseAuth.instance.currentUser(),
-      builder:(ctx,futureSnapshot) {
-        if(futureSnapshot.connectionState==ConnectionState.waiting){
-          return Center(
-              child:CircularProgressIndicator()
-          );
+      builder: (ctx, futureSnapshot) {
+        if (futureSnapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
         }
         return StreamBuilder(
-      stream: Firestore.instance.collection('chat').orderBy(
-          'ts', descending: true).snapshots(),
-      builder: (ctx, chatSnapshot) {
-        if (chatSnapshot.connectionState == ConnectionState.waiting) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-        final chatDocs = chatSnapshot.data.documents;
-        return ListView.builder(
-        reverse: true,
-        itemCount: chatDocs.length,
-        itemBuilder: (ctx, index) =>
-        MD(chatDocs[index]['text'],
-          chatDocs[index]['username'],chatDocs[index]['sender']==futureSnapshot.data.uid,
-        key: ValueKey(chatDocs[index].documentID),),
-        );});
+            stream: Firestore.instance
+                .collection('chat')
+                .orderBy('ts', descending: true)
+                .snapshots(),
+            builder: (ctx, chatSnapshot) {
+              if (chatSnapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              final chatDocs = chatSnapshot.data.documents;
+              return ListView.builder(
+                reverse: true,
+                itemCount: chatDocs.length,
+                itemBuilder: (ctx, index) => MD(
+                  chatDocs[index]['text'],
+                  chatDocs[index]['username'],
+                  chatDocs[index]['sender'] == futureSnapshot.data.uid,
+                  key: ValueKey(chatDocs[index].documentID),
+                ),
+              );
+            });
       },
     );
   }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../widgets/messages.dart';
-import'package:chat_app/widgets/new_message.dart';
+import 'package:chat_app/widgets/new_message.dart';
+
 class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,15 +14,20 @@ class ChatScreen extends StatelessWidget {
           DropdownButton(
             icon: Icon(
               Icons.more_vert,
-              color: Theme.of(context).primaryIconTheme.color,
+              color: Theme
+                  .of(context)
+                  .primaryIconTheme
+                  .color,
             ),
             items: [
               DropdownMenuItem(
                 child: Container(
                   child: Row(
                     children: <Widget>[
-                      Icon(Icons.exit_to_app),
-                      SizedBox(width: 8),
+                      Icon(
+                        Icons.exit_to_app,
+                      ),
+                      SizedBox(width: 10),
                       Text('Logout'),
                     ],
                   ),
@@ -39,9 +45,10 @@ class ChatScreen extends StatelessWidget {
       ),
       body: Container(
         child: Column(
-          children:<Widget>[
+          children: <Widget>[
             Expanded(
-              child: Messages(),),
+              child: Messages(),
+            ),
             NewMessage(),
           ],
         ),

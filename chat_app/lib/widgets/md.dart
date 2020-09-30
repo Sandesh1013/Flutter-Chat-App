@@ -13,45 +13,46 @@ class MD extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-        mainAxisAlignment:
-            isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: isMe ? Colors.blue : Theme.of(context).accentColor,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(8),
-                bottomRight: isMe ? Radius.circular(0) : Radius.circular(12),
-                topLeft: Radius.circular(8),
-                bottomLeft: !isMe ? Radius.circular(0) : Radius.circular(8),
-              ),
+      mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            color: isMe ? Colors.blue : Theme.of(context).accentColor,
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(8),
+              bottomRight: isMe ? Radius.circular(0) : Radius.circular(12),
+              topLeft: Radius.circular(8),
+              bottomLeft: !isMe ? Radius.circular(0) : Radius.circular(8),
             ),
-            width: 180,
-            padding: EdgeInsets.all(12),
-            margin: EdgeInsets.all(3),
-            child: Column(
-                crossAxisAlignment: isMe?CrossAxisAlignment.end:CrossAxisAlignment.start,
-                children: <Widget>[
-
-               Text(
-                      username,
-                      style: TextStyle(
-                        color: isMe
-                            ? Colors.black
-                            : Theme.of(context).accentTextTheme.title.color,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+          ),
+          width: 180,
+          padding: EdgeInsets.all(12),
+          margin: EdgeInsets.all(3),
+          child: Column(
+            crossAxisAlignment:
+                isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                username,
+                style: TextStyle(
+                  color: isMe
+                      ? Colors.black
+                      : Theme.of(context).accentTextTheme.headline6.color,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               Text(
                 message,
                 style: TextStyle(
                     color: isMe
                         ? Colors.black
-                        : Theme.of(context).accentTextTheme.title.color),
-                textAlign: isMe?TextAlign.end:TextAlign.start,
+                        : Theme.of(context).accentTextTheme.headline6.color),
+                textAlign: isMe ? TextAlign.end : TextAlign.start,
               ),
-            ]),
+            ],
           ),
-        ]);
+        ),
+      ],
+    );
   }
 }
