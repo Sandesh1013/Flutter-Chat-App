@@ -30,27 +30,27 @@ class MD extends StatelessWidget {
             padding: EdgeInsets.all(12),
             margin: EdgeInsets.all(3),
             child: Column(
-                crossAxisAlignment: isMe?CrossAxisAlignment.end:CrossAxisAlignment.start,
+                crossAxisAlignment:
+                    isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
                 children: <Widget>[
-
-               Text(
-                      username,
-                      style: TextStyle(
+                  Text(
+                    username,
+                    style: TextStyle(
+                      color: isMe
+                          ? Colors.black
+                          : Theme.of(context).accentTextTheme.title.color,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    message,
+                    style: TextStyle(
                         color: isMe
                             ? Colors.black
-                            : Theme.of(context).accentTextTheme.title.color,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-              Text(
-                message,
-                style: TextStyle(
-                    color: isMe
-                        ? Colors.black
-                        : Theme.of(context).accentTextTheme.title.color),
-                textAlign: isMe?TextAlign.end:TextAlign.start,
-              ),
-            ]),
+                            : Theme.of(context).accentTextTheme.title.color),
+                    textAlign: isMe ? TextAlign.end : TextAlign.start,
+                  ),
+                ]),
           ),
         ]);
   }

@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
   AuthForm(
-      this.submitFn,
-      this.isLoading,
-      );
+    this.submitFn,
+    this.isLoading,
+  );
 
   final bool isLoading;
   final void Function(
-      String email,
-      String password,
-      String userName,
-      bool isLogin,
-      BuildContext ctx,
-      ) submitFn;
+    String email,
+    String password,
+    String userName,
+    bool isLogin,
+    BuildContext ctx,
+  ) submitFn;
 
   @override
   _AuthFormState createState() => _AuthFormState();
