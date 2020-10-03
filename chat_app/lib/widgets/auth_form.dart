@@ -56,6 +56,8 @@ class _AuthFormState extends State<AuthForm> {
     return Center(
       child: Card(
         margin: EdgeInsets.all(20),
+        elevation: 10,
+        shadowColor: Colors.purple,
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(16),
@@ -104,7 +106,9 @@ class _AuthFormState extends State<AuthForm> {
                       }
                       return null;
                     },
-                    decoration: InputDecoration(labelText: 'Password'),
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                    ),
                     obscureText: true,
                     onSaved: (value) {
                       _userPassword = value;
@@ -114,15 +118,20 @@ class _AuthFormState extends State<AuthForm> {
                   if (widget.isLoading) CircularProgressIndicator(),
                   if (!widget.isLoading)
                     RaisedButton(
-                      child: Text(_isLogin ? 'Login' : 'Signup'),
+                      elevation: 3,
+                      child: Text(
+                        _isLogin ? 'Login' : 'Signup',
+                      ),
                       onPressed: _trySubmit,
                     ),
                   if (!widget.isLoading)
                     FlatButton(
                       textColor: Theme.of(context).primaryColor,
-                      child: Text(_isLogin
-                          ? 'Create new account'
-                          : 'I already have an account'),
+                      child: Text(
+                        _isLogin
+                            ? 'Create new account'
+                            : 'I already have an account',
+                      ),
                       onPressed: () {
                         setState(() {
                           _isLogin = !_isLogin;

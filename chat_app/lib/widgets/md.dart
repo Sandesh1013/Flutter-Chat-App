@@ -13,18 +13,16 @@ class MD extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-        mainAxisAlignment:
-            isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: isMe ? Colors.blue : Theme.of(context).accentColor,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(8),
-                bottomRight: isMe ? Radius.circular(0) : Radius.circular(12),
-                topLeft: Radius.circular(8),
-                bottomLeft: !isMe ? Radius.circular(0) : Radius.circular(8),
-              ),
+      mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            color: isMe ? Colors.blue : Theme.of(context).accentColor,
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(8),
+              bottomRight: isMe ? Radius.circular(0) : Radius.circular(12),
+              topLeft: Radius.circular(8),
+              bottomLeft: !isMe ? Radius.circular(0) : Radius.circular(8),
             ),
             width: 180,
             padding: EdgeInsets.all(12),
@@ -52,6 +50,8 @@ class MD extends StatelessWidget {
                   ),
                 ]),
           ),
-        ]);
+        ),
+      ],
+    );
   }
 }

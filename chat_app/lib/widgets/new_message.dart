@@ -15,7 +15,7 @@ class _NewMessageState extends State<NewMessage> {
     FocusScope.of(context).unfocus();
     final user = await FirebaseAuth.instance.currentUser();
     final userData =
-        await Firestore.instance.collection('users').document(user.uid).get();
+    await Firestore.instance.collection('users').document(user.uid).get();
     Firestore.instance.collection('chat').add({
       'text': enteredMessage,
       'ts': Timestamp.now(),
@@ -37,7 +37,8 @@ class _NewMessageState extends State<NewMessage> {
               controller: _controller,
               decoration: InputDecoration(labelText: 'Write a message!'),
               onChanged: (value) {
-                enteredMessage = value;
+                enteredMessage=value;
+                print('message added');
               },
             ),
           ),
@@ -45,7 +46,7 @@ class _NewMessageState extends State<NewMessage> {
             icon: Icon(Icons.send),
             onPressed: enteredMessage.trim().isEmpty ? null : _sendMessage,
             color: Theme.of(context).accentColor,
-          )
+          ),
         ],
       ),
     );
