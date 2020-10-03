@@ -24,32 +24,31 @@ class MD extends StatelessWidget {
               topLeft: Radius.circular(8),
               bottomLeft: !isMe ? Radius.circular(0) : Radius.circular(8),
             ),
-          ),
-          width: 180,
-          padding: EdgeInsets.all(12),
-          margin: EdgeInsets.all(3),
-          child: Column(
-            crossAxisAlignment:
-                isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                username,
-                style: TextStyle(
-                  color: isMe
-                      ? Colors.black
-                      : Theme.of(context).accentTextTheme.headline6.color,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                message,
-                style: TextStyle(
-                    color: isMe
-                        ? Colors.black
-                        : Theme.of(context).accentTextTheme.headline6.color),
-                textAlign: isMe ? TextAlign.end : TextAlign.start,
-              ),
-            ],
+            width: 180,
+            padding: EdgeInsets.all(12),
+            margin: EdgeInsets.all(3),
+            child: Column(
+                crossAxisAlignment:
+                    isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    username,
+                    style: TextStyle(
+                      color: isMe
+                          ? Colors.black
+                          : Theme.of(context).accentTextTheme.title.color,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    message,
+                    style: TextStyle(
+                        color: isMe
+                            ? Colors.black
+                            : Theme.of(context).accentTextTheme.title.color),
+                    textAlign: isMe ? TextAlign.end : TextAlign.start,
+                  ),
+                ]),
           ),
         ),
       ],
