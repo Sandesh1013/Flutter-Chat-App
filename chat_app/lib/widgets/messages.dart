@@ -31,6 +31,7 @@ class Messages extends StatelessWidget {
                 itemBuilder: (ctx, index) => MD(
                   chatDocs[index]['text'],
                   chatDocs[index]['username'],
+                  chatDocs[index]['userImage'],
                   chatDocs[index]['sender'] == futureSnapshot.data.uid,
                   key: ValueKey(chatDocs[index].documentID),
                 ),
